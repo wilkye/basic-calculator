@@ -30,3 +30,23 @@ let operate = (a, b, c) => {
             break;
     }
 }
+let array = [];
+let parseInput = (input) => {
+    if (isNaN(input)) {
+        console.log("not a number");
+    } else {
+        console.log("number");
+    }
+}
+
+let assignBtns = (btns) => {
+    btns.forEach(btn => {
+        btn.addEventListener("click", () => {
+            parseInput(btn.textContent);
+        });
+    });
+}
+
+const calcBtns = document.querySelectorAll(".calc-btn");
+
+assignBtns(calcBtns);
