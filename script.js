@@ -40,6 +40,22 @@ let parseInput = (input) => {
         inputField.textContent = outputString;
         return;
     }
+    if (input === "=") {
+        // Split the outputString into operands and operators
+        let tokens = outputString.match(/(\d+|\+|\-|\*|\/)/g);
+        if (tokens.length !== 3) {
+            console.log("invalid expression");
+            return;
+        } else {
+            let a = parseFloat(tokens[0]);
+            let operator = tokens[1];
+            let b = parseFloat(tokens[2]);
+            let result = operate(a, b, operator);
+            outputString = result.toString();
+            inputField.textContent = outputString;
+            return;
+        }
+    }
     if (isNaN(input) && outputString.length === 0) {
         console.log("not a number");
     } else {
