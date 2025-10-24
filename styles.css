@@ -30,6 +30,7 @@ body {
     border-radius: 16px;
     font-size: 36px;
     font-weight: 600;
+    height: 40px;
 }
 
 .btn-container {
@@ -38,6 +39,7 @@ body {
     justify-content: space-between;
     align-content: space-between;
     flex: 1;
+    flex-shrink: 0;
     margin: 20px;
 }
 
