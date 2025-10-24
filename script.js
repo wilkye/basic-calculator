@@ -1,3 +1,5 @@
+const inputField = document.querySelector(".input-field");
+
 let add = (a, b) => {
     return a + b;
 }
@@ -30,12 +32,19 @@ let operate = (a, b, c) => {
             break;
     }
 }
-let array = [];
+
+let outputString = "";
 let parseInput = (input) => {
-    if (isNaN(input)) {
+    if (input === "c") {
+        outputString = "";
+        inputField.textContent = outputString;
+        return;
+    }
+    if (isNaN(input) && outputString.length === 0) {
         console.log("not a number");
     } else {
-        console.log("number");
+        outputString += input;
+        inputField.textContent = outputString;
     }
 }
 
