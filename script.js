@@ -9,11 +9,13 @@ let sub = (a, b) => {
 }
 
 let mult = (a, b) => {
-    return a * b;
+    let final = a * b;
+    return final.toFixed(6);
 }
 
 let divide = (a, b) => {
-    return a / b;
+    let final = a / b;
+    return final.toFixed(6);
 }
 
 let operate = (a, b, c) => {
@@ -41,8 +43,9 @@ let parseInput = (input) => {
         return;
     }
     if (input === "=") {
-        // Split the outputString into operands and operators
-        let tokens = outputString.match(/(\d+|\+|\-|\x|\/)/g);
+        // Split the outputString into operands and operators.
+        // Use a number token that allows decimals so "3.14" or ".5" are kept as one token.
+        let tokens = outputString.match(/(\d*\.?\d+|\+|\-|\x|\/)/g);
         if (!tokens) {
             console.log("invalid expression");
             return;
